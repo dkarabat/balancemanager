@@ -4,10 +4,11 @@ import com.balance.domain.Role;
 import com.balance.domain.User;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,9 +18,10 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    final static Logger log = LoggerFactory.getLogger(UserDaoImpl.class);
+
     @Override
     public void saveUser(User user) {
-        user.setBalance(0.0);
         Date date = new Date();
         user.setReg_date(date);
         user.setEnabled(true);
@@ -38,7 +40,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserByNme(String login) {
-        List<User> userList = new ArrayList<User>();
+        List<User> userList;
         Query query = sessionFactory.getCurrentSession().createQuery("from User u where u.username = :login");
         query.setParameter("login", login);
         userList = query.list();
@@ -50,17 +52,17 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUserEntityByID(Integer id) {
-        User user = (User)  sessionFactory.getCurrentSession().get(User.class, id);
+        User user = (User) sessionFactory.getCurrentSession().get(User.class, id);
         return user;
     }
 
     @Override
     public String replenishBalance(Integer id, Double summ) {
-        System.out.println("replanish  !!!");
+        log.info("replanish  !!!");
         User user = (User) sessionFactory.getCurrentSession().load(User.class, id);
-        System.out.println("user name = " + user.getUsername());
+        log.info("user name = {}", user.getUsername());
         user.setBalance(user.getBalance() + summ);
-        System.out.println("balance = " + user.getBalance());
+        log.info("balance = {}", user.getBalance());
         sessionFactory.getCurrentSession().flush();
         return "updated";
     }

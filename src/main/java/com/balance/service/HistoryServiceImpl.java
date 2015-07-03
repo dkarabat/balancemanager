@@ -28,7 +28,7 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public List<User> getHistory() {
+    public List<History> getHistory() {
         return historyDao.getHistory();
     }
 

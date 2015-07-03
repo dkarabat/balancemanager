@@ -22,7 +22,7 @@ public class User {
     private Date reg_date;
 
     @Column(name = "BALANCE")
-    private Double balance;
+    private Double balance =0.0;
 
     @Column(name = "ENABLED")
     private Boolean enabled;

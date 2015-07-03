@@ -14,7 +14,7 @@ public interface HistoryDAO {
 
     public void saveHistory(History history);
 
-    public List<User> getHistory();
+    public List<History> getHistory();
 
     public List<User> getHistoryByDate(Date from, Date to) throws ParseException;
 

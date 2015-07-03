@@ -4,6 +4,8 @@ import com.balance.domain.History;
 import com.balance.domain.User;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,15 +19,18 @@ public class HistoryDAOImpl implements HistoryDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    private static Logger log = LoggerFactory.getLogger(HistoryDAOImpl.class);
+
     @Override
     public void saveHistory(History history) {
         sessionFactory.getCurrentSession().saveOrUpdate(history);
     }
 
     @Override
-    public List<User> getHistory() {
-        List<User> historyList = sessionFactory.getCurrentSession()
-                .createCriteria(User.class).list();
+    public List<History> getHistory() {
+        List<History> historyList = sessionFactory.getCurrentSession()
+                .createCriteria(History.class).list();
+        log.info("history size: {}",historyList.size());
         return  historyList;
     }
 
