@@ -18,7 +18,6 @@
         });
     });
 
-
     function checkReverse(user, id) {
         $('#reverseModal').modal({show: true})
         $("#user").val(user);
@@ -47,10 +46,9 @@
             },
             success: function (data) {
                 showHidePreloader(false);
-//                document.getElementById(data.id).value = data.balance;
-                $('#mytable').find('tr#'+document.getElementById('id').value).find('td:eq(1)').html(data.balance);
-                    alert('Баланс успешно пополнен на сумму' + data.balance);
-                    $('#reverseModal').modal('hide')
+                $('#mytable').find('tr#' + document.getElementById('id').value).find('td:eq(1)').html(data.balance);
+                alert('Баланс успешно пополнен на сумму' + data.balance);
+                $('#reverseModal').modal('hide')
             },
             error: function (data) {
                 showHidePreloader(false);
@@ -58,13 +56,11 @@
             }
         });
     }
-
-
 </script>
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Being Java Guys | User Details</title>
+    <title>User Details</title>
 </head>
 <body>
 <br><br><br><br><br><br>
@@ -82,11 +78,12 @@
         </thead>
         <tbody>
         <c:forEach items="${user}" var="user">
-            <tr id = "${user.user_id}">
+            <tr id="${user.user_id}">
                 <td>
                     <a href="javascript:;"
-                       onclick="checkReverse('${user.username}','${user.user_id}')"><c:out value="${user.username}"/></a></td>
-                <td id ="${user.user_id}"><c:out value="${user.balance}"/></td>
+                       onclick="checkReverse('${user.username}','${user.user_id}')"><c:out
+                            value="${user.username}"/></a></td>
+                <td id="${user.user_id}"><c:out value="${user.balance}"/></td>
                 <td><c:out value="${user.reg_date}"/></td>
             </tr>
         </c:forEach>
@@ -110,14 +107,11 @@
             </div>
         </b>
 
-        Сумма :
-        <input type="text" class="input-large" name="amt" id="amt" value="">
-
         <div style="display: none;" id="preloader"><img src="http://preloaders.net/images/ajax-loader.gif" alt=
                 "AJAX loader" title="AJAX loader"/></div>
-
         <br/>
 
+        <input type="text" class="input-large" name="amt" id="amt" value="" required pattern="\d+(\.\d{2})?">
 
     </div>
     <div class="modal-footer">

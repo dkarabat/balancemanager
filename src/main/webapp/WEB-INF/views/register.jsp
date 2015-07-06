@@ -19,7 +19,7 @@
 <table width="400px" height="150px">
 <tr>
 <td><form:label path="username">Email</form:label></td>
-<td><form:input  path="username"/></td>
+<td><form:input type="email" path="username"/></td>
 </tr>
 <tr>
 <td><form:label path="password">Password</form:label></td>

@@ -17,9 +17,6 @@
             "sPaginationType": "full_numbers"
         });
     });
-
-
-
 </script>
 
 <head>

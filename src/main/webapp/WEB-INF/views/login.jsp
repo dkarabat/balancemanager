@@ -10,19 +10,19 @@
 </head>
 <body>
 
-<a href="<c:url value="/index" />">
-	<spring:message code="label.contacts" />
-</a><br/>
-
+<center>
+	<br><br><br><br><br><br>
+	<div style="color: teal;font-size: 30px"><spring:message code="label.title" /></div>
+	<br><br>
 <c:if test="${not empty param.error}">
 	<font color="red"> <spring:message code="label.loginerror" />
 	: ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} </font>
 </c:if>
-<form method="POST" action="<c:url value="/j_spring_security_check" />">
+<form method="POST" action="<c:url value='j_spring_security_check' />" method='POST'>
 <table>
 	<tr>
 		<td align="right"><spring:message code="label.login" /></td>
-		<td><input type="text" name="j_username" /></td>
+		<td><input type="email" name="j_username" /></td>
 	</tr>
 	<tr>
 		<td align="right"><spring:message code="label.password" /></td>
@@ -37,6 +37,10 @@
 		<input type="reset" value="Reset" /></td>
 	</tr>
 </table>
+	<a href="register.html" ><spring:message code="label.register" /></a>
+
+	</a><br/>
 </form>
+</center>
 </body>
 </html>

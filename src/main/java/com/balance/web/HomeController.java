@@ -17,14 +17,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -40,27 +38,38 @@ public class HomeController {
     @Autowired
     private HistoryService historyService;
 
-    @RequestMapping("/")
-    public String login() {
-        return "userdetails";
+    @RequestMapping(value = {"/", "/welcome**"}, method = RequestMethod.GET)
+    public ModelAndView log() {
+        ModelAndView model = new ModelAndView();
+        model.addObject("title", "Spring Security Custom Login Form");
+        model.addObject("message", "This is welcome page!");
+        model.setViewName("login");
+        return model;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public ModelAndView login(
+            @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout) {
+
+        ModelAndView model = new ModelAndView();
+        if (error != null) {
+            model.addObject("error", "Invalid username and password!");
+        }
+
+        if (logout != null) {
+            model.addObject("msg", "You've been logged out successfully.");
+        }
+        model.setViewName("login");
+
+        return model;
+
+    }
 
     @RequestMapping("/register")
-    public ModelAndView getRegisterForm(@ModelAttribute("user") User user,
-                                        BindingResult result) {
-        ArrayList<String> gender = new ArrayList<String>();
-        gender.add("Male");
-        gender.add("Female");
-        ArrayList<String> city = new ArrayList<String>();
-        city.add("Delhi");
-        city.add("Kolkata");
-        city.add("Chennai");
-        city.add("Bangalore");
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("gender", gender);
-        model.put("city", city);
-        return new ModelAndView("register", "model", model);
+    public ModelAndView getRegisterForm(@ModelAttribute("user") User user, BindingResult result) {
+        ModelAndView model = new ModelAndView("register");
+        return model;
     }
 
     @RequestMapping("/saveuser")
