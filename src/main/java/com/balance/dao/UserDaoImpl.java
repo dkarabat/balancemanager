@@ -57,7 +57,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public String replenishBalance(Integer id, Double summ) {
+    public String addBalance(Integer id, Double summ) {
         User user = (User) sessionFactory.getCurrentSession().load(User.class, id);
         log.info("user name = {}", user.getUsername());
         user.setBalance(user.getBalance() + summ);
