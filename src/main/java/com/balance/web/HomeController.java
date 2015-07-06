@@ -97,7 +97,7 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/popolnenie", method = {RequestMethod.POST, RequestMethod.GET})
-    public ModelAndView addbalance(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    public ModelAndView addBalance(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         log.info("Add balance");
         log.info("user id = {}", req.getParameter("userid"));
         log.info("amount = {}", req.getParameter("amount"));
