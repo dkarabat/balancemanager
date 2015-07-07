@@ -7,7 +7,7 @@ import java.util.List;
 public interface UserDao {
     public void saveUser(User user);
 
-    public List<User> getUser();
+    public List<User> getUsers();
 
     public Object getUserByNme(String name);
 

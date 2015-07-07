@@ -56,7 +56,8 @@
             dataType: "json",
             data: {
                 'amount': document.getElementById('amt').value,
-                'userid': document.getElementById('id').value
+                'userid': document.getElementById('id').value,
+                'userName': document.getElementById('user').value
             },
             success: function (data) {
                 showHidePreloader(false);

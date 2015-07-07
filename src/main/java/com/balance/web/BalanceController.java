@@ -60,7 +60,7 @@ public class BalanceController {
         History history = new History();
         history.setAdmin_name("admin");
         history.setSumm(Double.parseDouble(req.getParameter("amount")));
-        history.setUser_name(req.getParameter("userid"));
+        history.setUser_name(req.getParameter("userName"));
         history.setUpdate_date(new Date());
         historyService.saveHistory(history);
         return null;
