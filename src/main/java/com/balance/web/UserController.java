@@ -51,7 +51,7 @@ public class UserController {
     @RequestMapping("/userlist")
     public ModelAndView getUserList() {
         ModelAndView modelAndView = new ModelAndView("userdetails");
-        modelAndView.addObject("user", userService.getUser());
+        modelAndView.addObject("user", userService.getUsers());
         return modelAndView;
     }
 
