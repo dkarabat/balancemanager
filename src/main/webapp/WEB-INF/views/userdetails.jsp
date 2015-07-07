@@ -61,7 +61,7 @@
             success: function (data) {
                 showHidePreloader(false);
                 $('#mytable').find('tr#' + document.getElementById('id').value).find('td:eq(1)').html(data.balance);
-                alert('Баланс успешно пополнен на сумму' + data.balance);
+                alert('Баланс успешно пополнен на сумму ' + data.balance);
                 $('#balanceModal').modal('hide')
             },
             error: function (data) {
@@ -98,7 +98,7 @@
                         <a href="javascript:;"
                            onclick="updateBalance('${user.username}','${user.user_id}')"><c:out
                                 value="${user.username}"/></a></td>
-                    <td id="${user.user_id}"><c:out value="${user.balance}"/></td>
+                    <td id="${user.user_id}"><c:out value="${user.balance} $" /></td>
                     <td><c:out value="${user.reg_date}"/></td>
                 </tr>
             </c:forEach>
