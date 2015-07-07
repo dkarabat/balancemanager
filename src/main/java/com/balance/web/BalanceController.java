@@ -5,6 +5,7 @@ import com.balance.domain.User;
 import com.balance.service.HistoryService;
 import com.balance.service.RoleService;
 import com.balance.service.UserService;
+import org.apache.log4j.MDC;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,7 @@ public class BalanceController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String userName = auth.getName();
         User user = userService.getUserByName(userName);
+        MDC.put("userName", user.getUsername());
         model.addAttribute("balance", user.getBalance());
         return "balance";
     }
