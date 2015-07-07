@@ -1,7 +1,7 @@
 package com.balance.dao;
 
 import com.balance.domain.History;
-import com.balance.domain.User;
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -30,20 +31,25 @@ public class HistoryDAOImpl implements HistoryDAO {
     public List<History> getHistory() {
         List<History> historyList = sessionFactory.getCurrentSession()
                 .createCriteria(History.class).list();
-        log.info("history size: {}",historyList.size());
-        return  historyList;
+        log.info("history size: {}", historyList.size());
+        return historyList;
     }
 
     @Override
-    public List<User> getHistoryByDate(Date from, Date to) throws ParseException {
-        List events = sessionFactory.getCurrentSession().createCriteria(History.class)
-                .add( Restrictions.or(
-                        Restrictions.isNull("startDate"),
-                        Restrictions.ge("startDate", from)))
-                        .add( Restrictions.or(
-                                Restrictions.isNull("endDate"),
-                                Restrictions.lt("endDate", to)))
-                                .list();
-        return events;
+    public List<History> getHistoryByDate(String from, String to) {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(History.class);
+        SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd");
+        Date startDate = null;
+        Date endDate = null;
+        try {
+            startDate = format.parse(from);
+            endDate = format.parse(to);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        criteria.add(Restrictions.between("update_date", startDate, endDate));
+        List<History> histories = criteria.list(); // It works fine now
+        log.info("history size = {}", histories.size());
+        return histories;
     }
 }

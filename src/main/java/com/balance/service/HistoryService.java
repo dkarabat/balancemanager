@@ -14,5 +14,5 @@ public interface HistoryService {
 
     public List<History> getHistory();
 
-    public List<User> getHistoryByDate(Date from, Date to) throws ParseException;
+    public List<History> getHistoryByDate(String from, String to);
 }

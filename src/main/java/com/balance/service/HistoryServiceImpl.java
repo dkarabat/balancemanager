@@ -33,7 +33,7 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public List<User> getHistoryByDate(Date from, Date to) throws ParseException {
+    public List<History> getHistoryByDate(String from, String to) {
         return historyDao.getHistoryByDate(from, to);
     }
 }
