@@ -19,8 +19,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 				login-page="/login"
 				default-target-url="/bal"
 			    authentication-failure-url="/login?error=true" />
-		<logout logout-url="/logout" logout-success-url="/index" />
-		
+		<logout logout-success-url="/" />
 		<anonymous username="guest" granted-authority="ROLE_ANONYMOUS" />
 		<remember-me />
 	</http>

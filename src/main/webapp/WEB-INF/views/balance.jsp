@@ -12,5 +12,7 @@
 <body>
 
 <h1>Ваш текущий баланс : ${balance}</h1>
+<br>
+<a href="<c:url value="j_spring_security_logout" />" >Выйти из системы</a>
 </body>
 </html>
