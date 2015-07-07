@@ -19,6 +19,10 @@
     $(document).ready(function () {
         $("#txtConfirmPassword").keyup(checkPasswordMatch);
     });
+
+    function info() {
+        <%if (request.getAttribute("info") != null) out.write("alert(\""+request.getAttribute("info")+"\")"); %>
+    }
 </script>
 
 <html>
@@ -27,7 +31,7 @@
     <title> Добро пожаловать!</title>
 
 </head>
-<body>
+<body onload="info()">
 <center>
     <br><br><br><br><br><br>
 

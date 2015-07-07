@@ -2,11 +2,10 @@ package com.balance.web;
 
 import com.balance.domain.User;
 import com.balance.service.UserService;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -14,11 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.apache.log4j.MDC;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.security.Principal;
 
 @Controller
 public class UserController {
@@ -41,11 +35,19 @@ public class UserController {
     }
 
     @RequestMapping("/saveuser")
-    public String saveUserData(@ModelAttribute("user") User user,
+    public ModelAndView saveUserData(@ModelAttribute("user") User user,
                                BindingResult result, ModelMap model) {
-        userService.addUser(user);
-        model.addAttribute("balance", user.getBalance());
-        return "balance";
+        User newUser = userService.getUserByName(user.getUsername());
+        if(newUser == null) {
+            userService.addUser(user);
+            model.addAttribute("balance", user.getBalance());
+            ModelAndView balanceModel = new ModelAndView("balance");
+            return balanceModel;
+        } else {
+            model.addAttribute("info", "Пользователь с таким именем уже зарегистрирован в системе");
+            ModelAndView registerModel = new ModelAndView("register");
+            return registerModel;
+        }
     }
 
     @RequestMapping("/userlist")
