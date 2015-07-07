@@ -18,6 +18,9 @@ public class User {
     @Column(name = "PASSWORD")
 	private String password;
 
+    @Transient
+    private String confirmPassword;
+
     @Column(name = "REG_DATE")
     private Date reg_date;
 
@@ -91,5 +94,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }
