@@ -1,5 +1,6 @@
 package com.balance.web;
 
+import com.balance.domain.History;
 import com.balance.service.HistoryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class HistoryController {
@@ -23,7 +25,9 @@ public class HistoryController {
     @RequestMapping("/history")
     public ModelAndView getHistoryList() {
         ModelAndView modelAndView = new ModelAndView("history");
-        modelAndView.addObject("history", historyService.getHistory());
+        List<History> historyList = historyService.getHistory();
+        modelAndView.addObject("history", historyList);
+        log.info("history list size {}", historyList.size());
         return modelAndView;
     }
 

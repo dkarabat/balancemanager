@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
@@ -25,12 +27,14 @@ public class UserController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public ModelAndView login() {
         ModelAndView loginModel = new ModelAndView("login");
+        log.info("login form");
         return loginModel;
     }
 
     @RequestMapping("/register")
     public ModelAndView getRegisterForm(@ModelAttribute("user") User user, BindingResult result) {
         ModelAndView model = new ModelAndView("register");
+        log.info("register user {}", user.getUsername());
         return model;
     }
 
@@ -39,11 +43,13 @@ public class UserController {
                                BindingResult result, ModelMap model) {
         User newUser = userService.getUserByName(user.getUsername());
         if(newUser == null) {
+            log.info("save user {}", user.getUsername());
             userService.addUser(user);
             model.addAttribute("balance", user.getBalance());
             ModelAndView balanceModel = new ModelAndView("balance");
             return balanceModel;
         } else {
+            log.info("save user {}", user.getUsername());
             model.addAttribute("info", "Пользователь с таким именем уже зарегистрирован в системе");
             ModelAndView registerModel = new ModelAndView("register");
             return registerModel;
@@ -53,7 +59,9 @@ public class UserController {
     @RequestMapping("/userlist")
     public ModelAndView getUserList() {
         ModelAndView modelAndView = new ModelAndView("userdetails");
-        modelAndView.addObject("user", userService.getUsers());
+        List<User> userList = userService.getUsers();
+        modelAndView.addObject("user", userList);
+        log.info("user list size = {}", userList.size());
         return modelAndView;
     }
 

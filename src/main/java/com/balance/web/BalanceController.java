@@ -39,6 +39,7 @@ public class BalanceController {
         String userName = auth.getName();
         User user = userService.getUserByName(userName);
         MDC.put("userName", user.getUsername());
+        log.info("user - {} balance = {}",  user.getUsername(), user.getBalance());
         model.addAttribute("balance", user.getBalance());
         return "balance";
     }

@@ -14,10 +14,9 @@ public class HomeController {
 
     @RequestMapping(value = {"/", "/welcome**"}, method = RequestMethod.GET)
     public ModelAndView log() {
-        ModelAndView model = new ModelAndView();
-        model.addObject("title", "Spring Security Custom Login Form");
+        ModelAndView model = new ModelAndView("login");
+        log.info("login form");
         model.addObject("message", "This is welcome page!");
-        model.setViewName("login");
         return model;
     }
 

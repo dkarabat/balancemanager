@@ -12,6 +12,15 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
+<style>
+    #content {
+        width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+</style>
+
 <script>
     $(document).ready(function () {
         $('#mytable').dataTable({
@@ -65,26 +74,29 @@
 </form>
 
 <c:if test="${!empty history}">
-    <table id="mytable" border="1" width="600px">
-        <thead style="background-color: teal;color: white;text-align: center;">
-        <tr>
-            <th>Администратор</th>
-            <th>Пользователь</th>
-            <th>Дата пополнения</th>
-            <th>Сумма пополнения</th>
-        </tr>
-        </thead>
-        <tbody>
-        <c:forEach items="${history}" var="history">
+    <div id="content">
+        <table id="mytable" border="1" width="600px">
+            <thead style="background-color: teal;color: white;text-align: center;">
             <tr>
-                <td><c:out value=" ${history.admin_name}"/></td>
-                <td><c:out value="${history.user_name}"/></td>
-                <td><c:out value="${history.update_date}"/></td>
-                <td><c:out value="${history.summ}"/></td>
+                <th>Администратор</th>
+                <th>Пользователь</th>
+                <th>Дата пополнения</th>
+                <th>Сумма пополнения</th>
             </tr>
-        </c:forEach>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            <c:forEach items="${history}" var="history">
+                <tr>
+                    <td><c:out value=" ${history.admin_name}"/></td>
+                    <td><c:out value="${history.user_name}"/></td>
+                    <td><c:out value="${history.update_date}"/></td>
+                    <td><c:out value="${history.summ}"/></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+    </div>
+    >
 </c:if>
 <br>
 
