@@ -12,10 +12,10 @@ public class User {
 	@Column(name = "ID")
 	private int user_id;
 
-	@Column(name = "USERNAME")
+	@Column(name = "USERNAME", nullable = false)
 	private String username;
 
-    @Column(name = "PASSWORD")
+    @Column(name = "PASSWORD", nullable = false)
 	private String password;
 
     @Transient

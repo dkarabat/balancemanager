@@ -11,15 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-
-<style>
-    #content {
-        width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-</style>
+<link rel="stylesheet" type="text/css" href="/css/my/main.css">
 
 <script>
     $(document).ready(function () {

@@ -10,20 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/css/demo_table_jui.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
-
-<style>
-    #content {
-        width: 650px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .block label {
-        display: inline-block;
-        width: 140px;
-        text-align: left;
-    }
-</style>
+<link rel="stylesheet" type="text/css" href="/css/my/main.css">
 
 <script>
     $(document).ready(function () {

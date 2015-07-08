@@ -57,7 +57,6 @@ public class History {
     }
 
     public int getId() {
-
         return id;
     }
 
