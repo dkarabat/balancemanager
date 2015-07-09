@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript" language="javascript"
         src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 <script>
     function checkPasswordMatch() {
         var password = $("#txtNewPassword").val();
@@ -25,6 +26,14 @@
     }
 </script>
 
+<style>
+    .error {
+        color: #ff0000;
+        font-style: italic;
+        font-weight: bold;
+    }
+</style>
+
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,15 +51,16 @@
         <table width="400px" height="150px">
             <tr>
                 <td><form:label path="username">Email</form:label></td>
-                <td><form:input type="email" path="username"/></td>
+                <td><form:input type="email" path="username" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="password">Password</form:label></td>
-                <td><form:input type="password" id="txtNewPassword" path="password"/></td>
+                <td><form:input type="password" id="txtNewPassword" path="password" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="confirmPassword">Confirm password</form:label></td>
-                <td><form:input type="password" id="txtConfirmPassword" path="confirmPassword" onChange="checkPasswordMatch();"/></td>
+                <td><form:input type="password" id="txtConfirmPassword" path="confirmPassword" cssClass="error"
+                                onChange="checkPasswordMatch();"/></td>
             </tr>
             <tr>
                 <td></td>
