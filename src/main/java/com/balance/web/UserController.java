@@ -2,7 +2,6 @@ package com.balance.web;
 
 import com.balance.domain.User;
 import com.balance.service.UserService;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -39,8 +39,14 @@ public class UserController {
     }
 
     @RequestMapping("/saveuser")
-    public ModelAndView saveUserData(@ModelAttribute("user") User user,
+    public ModelAndView saveUserData(@ModelAttribute("user") @Valid User user,
                                BindingResult result, ModelMap model) {
+        if (result.hasErrors()) {
+            log.info("validation error");
+            model.addAttribute("info", "Заполните все поля");
+            ModelAndView registerModel = new ModelAndView("register");
+            return registerModel;
+        }
         User newUser = userService.getUserByName(user.getUsername());
         if(newUser == null) {
             log.info("save user {}", user.getUsername());

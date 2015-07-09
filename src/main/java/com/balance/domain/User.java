@@ -1,6 +1,9 @@
 package com.balance.domain;
 
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -15,7 +18,7 @@ public class User {
 	private int user_id;
 
 	@Column(name = "USERNAME")
-    @NotNull
+    @NotNull @NotEmpty @Email
 	private String username;
 
     @Column(name = "PASSWORD")
