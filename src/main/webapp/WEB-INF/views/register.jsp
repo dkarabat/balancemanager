@@ -61,7 +61,6 @@
             <tr>
                 <td></td>
                 <td>
-                    </div>
                     <div class="registrationFormAlert" id="divCheckPasswordMatch">
                     </div>
                     <input type="submit" value="register"/>
