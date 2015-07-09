@@ -2,6 +2,7 @@ package com.balance.domain;
 
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -19,11 +20,14 @@ public class User {
 
 	@Column(name = "USERNAME")
     @NotNull @NotEmpty @Email
-	private String username;
+//    @Pattern(regexp=".+@.+\\..+", message="Wrong email!")
+    private String username;
 
     @Column(name = "PASSWORD")
-    @NotNull @NotEmpty
-	private String password;
+    @NotNull(message="Please select a password")
+    @Length(min=5, max=10, message="Password should be between 5 - 10 charactes")
+
+    private String password;
 
     @Transient
     private String confirmPassword;
