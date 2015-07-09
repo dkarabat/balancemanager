@@ -36,8 +36,9 @@
 <body onload="info()">
     <br><br><br><br><br><br>
 
-    <div id="content" style="color: teal;font-size: 30px">Регистрация</div>
+    <div id="title" style="color: teal;font-size: 30px">Регистрация</div>
     <br><br>
+    <div id="content">
     <c:url var="userRegistration" value="saveuser.html"/>
     <form:form id="registerForm" modelAttribute="user" method="post" action="${userRegistration}">
         <table width="400px" height="150px">
@@ -68,5 +69,6 @@
             </tr>
         </table>
     </form:form>
+    </div>
 </body>
 </html>
