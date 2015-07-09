@@ -1,5 +1,7 @@
 package com.balance.domain;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,10 +14,12 @@ public class User {
 	@Column(name = "ID")
 	private int user_id;
 
-	@Column(name = "USERNAME", nullable = false)
+	@Column(name = "USERNAME")
+    @NotNull
 	private String username;
 
-    @Column(name = "PASSWORD", nullable = false)
+    @Column(name = "PASSWORD")
+    @NotNull
 	private String password;
 
     @Transient
@@ -25,9 +29,11 @@ public class User {
     private Date reg_date;
 
     @Column(name = "BALANCE")
+    @NotNull
     private Double balance =0.0;
 
     @Column(name = "ENABLED")
+    @NotNull
     private Boolean enabled;
 
 
