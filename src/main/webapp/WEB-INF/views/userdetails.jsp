@@ -71,7 +71,7 @@
 <br><br>
 <c:if test="${!empty user}">
     <div id="content">
-        <table id="users" border="1">
+        <table id="users" border="1" width="600px">
             <thead>
             <tr>
                 <th>Email</th>
