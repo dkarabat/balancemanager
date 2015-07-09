@@ -22,7 +22,7 @@ public class User {
 	private String username;
 
     @Column(name = "PASSWORD")
-    @NotNull
+    @NotNull @NotEmpty
 	private String password;
 
     @Transient
