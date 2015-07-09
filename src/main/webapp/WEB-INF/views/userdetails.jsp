@@ -14,7 +14,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#mytable').dataTable({
+        $('#users').dataTable({
             "sPaginationType": "full_numbers"
         });
     });
@@ -48,7 +48,7 @@
             },
             success: function (data) {
                 showHidePreloader(false);
-                $('#mytable').find('tr#' + document.getElementById('id').value).find('td:eq(1)').html(data.balance);
+                $('#users').find('tr#' + document.getElementById('id').value).find('td:eq(1)').html(data.balance);
                 alert('Баланс успешно пополнен на сумму ' + data.balance);
                 $('#balanceModal').modal('hide')
             },
@@ -71,7 +71,7 @@
 <br><br>
 <c:if test="${!empty user}">
     <div id="content">
-        <table id="mytable" border="1" width="600px">
+        <table id="users" border="1">
             <thead>
             <tr>
                 <th>Email</th>
