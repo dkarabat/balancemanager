@@ -2,7 +2,7 @@
          pageEncoding="utf8" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<link rel="stylesheet" type="text/css" href="/css/my/style.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,13 +13,13 @@
 <div id="title" style="color: teal;font-size: 30px"><spring:message code="label.title"/></div>
 <br><br>
 
-<div id="title">
+<div id="content">
     <c:if test="${not empty param.error}">
         <font color="red"> <spring:message code="label.loginerror"/>
             : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message} </font>
     </c:if>
     <form method="POST" action="<c:url value='j_spring_security_check' />" method='POST'>
-        <table>
+        <table width="400px" height="150px">
             <tr>
                 <td align="right"><spring:message code="label.login"/></td>
                 <td><input type="email" name="j_username"/></td>

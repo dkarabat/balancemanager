@@ -5,12 +5,12 @@
 <html>
 <script type="text/javascript" language="javascript"
         src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery.dataTables.js"></script>
-<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/demo_table_jui.css">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.css">
-<link rel="stylesheet" type="text/css" href="/css/my/style.css">
+<script type="text/javascript" src="/resources/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="/resources/js/bootstrap/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/resources/css/demo_table_jui.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
 
 <script>
     $(document).ready(function () {
