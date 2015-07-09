@@ -1,3 +1,5 @@
+* { margin: 0; padding: 0; }
+
 #content {
     width: 650px;
     margin-left: auto;
@@ -8,4 +10,19 @@
     display: inline-block;
     width: 140px;
     text-align: left;
+}
+
+html { height: 100%; font-size: 62.5% }
+
+body {
+    height: 100%;
+    background-color: #10578D;
+    text-align: center;
+    font: 1.2em Verdana, Arial, Helvetica, sans-serif;
+}
+
+.title {
+    background-color: #282828;
+    letter-spacing: 1px;
+    width: 39em;
 }
