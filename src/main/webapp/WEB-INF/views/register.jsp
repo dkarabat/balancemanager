@@ -52,15 +52,18 @@
             <tr>
                 <td><form:label path="username">Email</form:label></td>
                 <td><form:input type="email" path="username" cssClass="error"/></td>
+                <td><form:errors path="username" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="password">Password</form:label></td>
                 <td><form:input type="password" id="txtNewPassword" path="password" cssClass="error"/></td>
+                <td><form:errors path="password" cssClass="error"/></td>
             </tr>
             <tr>
                 <td><form:label path="confirmPassword">Confirm password</form:label></td>
                 <td><form:input type="password" id="txtConfirmPassword" path="confirmPassword" cssClass="error"
                                 onChange="checkPasswordMatch();"/></td>
+                <td><form:errors  path="confirmPassword" cssClass="error"/></td>
             </tr>
             <tr>
                 <td></td>
