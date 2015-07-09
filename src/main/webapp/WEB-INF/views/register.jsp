@@ -64,8 +64,6 @@
         </table>
     </form:form>
 
-    <br>
-    <a href="userlist.html">Click Here to see User List</a>
 </center>
 </body>
 </html>
