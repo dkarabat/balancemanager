@@ -15,7 +15,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#mytable').dataTable({
+        $('#history').dataTable({
             "sPaginationType": "full_numbers"
         });
     });
@@ -67,7 +67,7 @@
 
 <c:if test="${!empty history}">
     <div id="content">
-        <table id="mytable" border="1" width="600px">
+        <table id="history" border="1" width="600px">
             <thead style="background-color: teal;color: white;text-align: center;">
             <tr>
                 <th>Администратор</th>
@@ -88,7 +88,6 @@
             </tbody>
         </table>
     </div>
-    >
 </c:if>
 <br>
 

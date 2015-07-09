@@ -16,6 +16,5 @@
     <br>
     <a href="<c:url value="j_spring_security_logout" />">Выйти из системы</a>
 </div>
->
 </body>
 </html>
