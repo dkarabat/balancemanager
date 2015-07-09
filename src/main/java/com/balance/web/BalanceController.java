@@ -61,7 +61,8 @@ public class BalanceController {
 
         //вынести добавление истории в отдельный метод
         History history = new History();
-        history.setAdmin_name("admin");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        history.setAdmin_name(auth.getName());
         history.setSumm(Double.parseDouble(req.getParameter("amount")));
         history.setUser_name(req.getParameter("userName"));
         history.setUpdate_date(new Date());
