@@ -27,14 +27,6 @@
     }
 </script>
 
-<style>
-    .error {
-        color: #ff0000;
-        font-style: italic;
-        font-weight: bold;
-    }
-</style>
-
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -42,10 +34,9 @@
 
 </head>
 <body onload="info()">
-<center>
     <br><br><br><br><br><br>
 
-    <div style="color: teal;font-size: 30px">Регистрация</div>
+    <div id="content" style="color: teal;font-size: 30px">Регистрация</div>
     <br><br>
     <c:url var="userRegistration" value="saveuser.html"/>
     <form:form id="registerForm" modelAttribute="user" method="post" action="${userRegistration}">
@@ -77,7 +68,5 @@
             </tr>
         </table>
     </form:form>
-
-</center>
 </body>
 </html>
