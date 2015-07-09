@@ -1,8 +1,8 @@
 package com.balance.domain;
 
-import com.sun.istack.internal.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
@@ -29,7 +29,6 @@ public class User {
     private Date reg_date;
 
     @Column(name = "BALANCE")
-    @NotNull
     private Double balance =0.0;
 
     @Column(name = "ENABLED")
