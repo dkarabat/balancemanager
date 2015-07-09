@@ -49,7 +49,7 @@
             success: function (data) {
                 showHidePreloader(false);
                 $('#users').find('tr#' + document.getElementById('id').value).find('td:eq(1)').html(data.balance);
-                alert('Баланс успешно пополнен на сумму ' +  document.getElementById('amt').value);
+                alert('Баланс успешно пополнен на сумму ' +  document.getElementById('amt').value +'$');
                 $('#balanceModal').modal('hide')
             },
             error: function (data) {
