@@ -3,7 +3,6 @@ package com.balance.web;
 import com.balance.domain.History;
 import com.balance.domain.User;
 import com.balance.service.HistoryService;
-import com.balance.service.RoleService;
 import com.balance.service.UserService;
 import org.apache.log4j.MDC;
 import org.json.JSONObject;
@@ -39,25 +38,25 @@ public class BalanceController {
         String userName = auth.getName();
         User user = userService.getUserByName(userName);
         MDC.put("userName", user.getUsername());
-        log.info("user - {} balance = {}",  user.getUsername(), user.getBalance());
+        log.info("user - {} balance = {}", user.getUsername(), user.getBalance());
         model.addAttribute("balance", user.getBalance());
         return "balance";
     }
 
-    @RequestMapping(value = "/popolnenie", method = {RequestMethod.POST, RequestMethod.GET})
+    @RequestMapping(value = "/addbalance", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView addBalance(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         log.info("Add balance");
         log.info("user id = {}", req.getParameter("userid"));
         log.info("amount = {}", req.getParameter("amount"));
         resp.setHeader("Content-Type", "text/xml; charset=UTF-8");
         JSONObject json = new JSONObject();
-        if (userService.replenishBalance(Integer.parseInt(req.getParameter("userid")),
-                Double.parseDouble(req.getParameter("amount"))).equals("updated")) {
-            json.put("balance", String.valueOf(userService.getUserEntityById(Integer.parseInt(req.getParameter("userid"))).getBalance()));
-            json.put("id", req.getParameter("userid"));
-            resp.getWriter().write(json.toString());
-            resp.flushBuffer();
-        }
+
+        userService.addBalance(Integer.parseInt(req.getParameter("userid")),
+                Double.parseDouble(req.getParameter("amount")));
+        json.put("balance", String.valueOf(userService.getUserEntityById(Integer.parseInt(req.getParameter("userid"))).getBalance()));
+        json.put("id", req.getParameter("userid"));
+        resp.getWriter().write(json.toString());
+        resp.flushBuffer();
 
         //вынести добавление истории в отдельный метод
         History history = new History();

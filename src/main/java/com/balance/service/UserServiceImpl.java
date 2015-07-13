@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String replenishBalance(Integer id, Double summ) {
+    public Double addBalance(Integer id, Double summ) {
         return userDao.addBalance(id, summ);
     }
 

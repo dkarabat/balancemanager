@@ -11,7 +11,7 @@ public interface UserService {
 
     public User getUserByName(String name);
 
-    public String  replenishBalance(Integer id, Double summ);
+    public Double  addBalance(Integer id, Double summ);
 
     public User getUserEntityById(Integer id);
 }

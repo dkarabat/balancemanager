@@ -13,5 +13,5 @@ public interface UserDao {
 
     public User getUserEntityByID(Integer id);
 
-    public String addBalance(Integer id, Double summ);
+    public Double addBalance(Integer id, Double summ);
 }

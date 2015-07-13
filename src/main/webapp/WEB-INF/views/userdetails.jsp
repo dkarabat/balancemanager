@@ -39,7 +39,7 @@
         showHidePreloader(true);
         $.ajax({
             type: 'POST',
-            url: 'popolnenie',
+            url: 'addbalance',
             dataType: "json",
             data: {
                 'amount': document.getElementById('amt').value,
