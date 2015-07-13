@@ -45,10 +45,10 @@ public class HistoryDAOImpl implements HistoryDAO {
             startDate = format.parse(from);
             endDate = format.parse(to);
         } catch (ParseException e) {
-            e.printStackTrace();
+            log.error("", e);
         }
         criteria.add(Restrictions.between("update_date", startDate, endDate));
-        List<History> histories = criteria.list(); // It works fine now
+        List<History> histories = criteria.list();
         log.info("history size = {}", histories.size());
         return histories;
     }

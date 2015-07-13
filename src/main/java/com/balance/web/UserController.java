@@ -42,8 +42,6 @@ public class UserController {
     public ModelAndView saveUserData(@ModelAttribute("user") @Valid User user,
                                BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
-            log.info("validation error");
-//            model.addAttribute("info", "Заполните все поля");
             ModelAndView registerModel = new ModelAndView("register");
             return registerModel;
         }

@@ -5,6 +5,11 @@
     margin: 0 auto;
 }
 
+.control-group {
+    width: 650px;
+    margin: 0 auto;
+}
+
 #title {
     width: 650px;
     margin: 0 auto;
@@ -32,4 +37,3 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
 }
-
