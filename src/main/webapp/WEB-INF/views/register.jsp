@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript" language="javascript"
         src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style_old.css">
 
 <script>
     function checkPasswordMatch() {

@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style_old.css">
 
 <script>
     $(document).ready(function () {

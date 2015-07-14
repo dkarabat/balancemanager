@@ -1,39 +1,58 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
-
-#content {
-    width: 650px;
-    margin: 0 auto;
+* {
+	margin: 0;
+	padding: 0;
 }
-
-.control-group {
-    width: 650px;
-    margin: 0 auto;
+html {
+	height: 100%;
 }
-
-#title {
-    width: 650px;
-    margin: 0 auto;
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block;
 }
-
-.block label {
-    display: inline-block;
-    width: 140px;
-    text-align: left;
-}
-
-.error {
-    color: #ff0000;
-    font-style: italic;
-    font-weight: bold;
-}
-
 body {
-    font-family: "Lato", Calibri, Arial, sans-serif;
-    background:  url("/resources/images/bg.jpg") repeat top left;
-    font-weight: 700;
-    font-size: 16px;
-    color: #333;
-    -webkit-font-smoothing: antialiased;
-    overflow-y: scroll;
-    overflow-x: hidden;
+	background:  url("/resources/images/bg.jpg") repeat top left;
+	font: 12px/18px Arial, sans-serif;
+	height: 100%;
+}
+.wrapper {
+	min-width: 1000px;
+	max-width: 2000px;
+	margin: 0 auto;
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	height: 150px;
+	/*background: #FFE680;*/
+	text-align: center
+}
+
+
+/* Middle
+-----------------------------------------------------------------------------*/
+.content {
+	width: 650px;
+	margin: 0 auto;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	margin: -100px auto 0;
+	min-width: 1000px;
+	max-width: 2000px;
+	height: 100px;
+	/*background: #BFF08E;*/
+	text-align: center
+}
+
+table {
+	/*width: 100%; /!* Ширина таблицы *!/*/
+	border: 4px double black; /* Рамка вокруг таблицы */
+	/*border-collapse: collapse; /!* Отображать только одинарные линии *!/*/
 }

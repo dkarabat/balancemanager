@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/demo_table_jui.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style_old.css">
 
 <script>
     $(document).ready(function () {
