@@ -27,6 +27,7 @@ body {
 -----------------------------------------------------------------------------*/
 .header {
 	height: 150px;
+	margin-top: 20px;
 	/*background: #FFE680;*/
 	text-align: center
 }
@@ -35,8 +36,11 @@ body {
 /* Middle
 -----------------------------------------------------------------------------*/
 .content {
-	width: 650px;
-	margin: 0 auto;
+	position: absolute;
+	top: 40%;
+	left: 40%;
+	margin-top: -50px;
+	margin-left: -50px;
 }
 
 
