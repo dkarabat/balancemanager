@@ -22,6 +22,7 @@
         </c:if>
         <form method="POST" action="<c:url value='j_spring_security_check' />" method='POST'>
             <table width="500px" height="150px">
+                <caption>Вход</caption>
                 <tr>
                     <td align="right"><spring:message code="label.login"/></td>
                     <td><input type="email" name="j_username"/></td>

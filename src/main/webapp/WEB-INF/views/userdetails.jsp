@@ -7,7 +7,7 @@
         src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/js/jquery.dataTables.js"></script>
 <script type="text/javascript" src="/resources/js/bootstrap/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="/resources/css/demo_table.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/jquery.dataTables.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
@@ -72,7 +72,7 @@
     <br><br>
     <c:if test="${!empty user}">
         <main class="content">
-                <table id="users" border="1" width="600px">
+                <table id="users">
                     <thead>
                     <tr>
                         <th>Email</th>

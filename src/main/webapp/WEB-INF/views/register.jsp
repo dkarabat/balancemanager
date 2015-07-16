@@ -36,13 +36,14 @@
 <body onload="info()">
 <div class="wrapper">
 
-    <header class="header" id="title" style="color: teal;font-size: 30px">Регистрация</header>
+    <header class="header" id="title" style="color: teal;font-size: 30px">Стрпница регистрация</header>
     <br><br>
 
     <main class="content">
         <c:url var="userRegistration" value="saveuser.html"/>
         <form:form id="registerForm" modelAttribute="user" method="post" action="${userRegistration}">
             <table width="400px" height="150px">
+                <caption>Регистрация</caption>
                 <tr>
                     <td><form:label path="username">Email</form:label></td>
                     <td><form:input type="email" path="username" cssClass="error"/></td>
