@@ -36,12 +36,8 @@ body {
 /* Middle
 -----------------------------------------------------------------------------*/
 .content {
-	position: absolute;
-	top: 40%;
-	left: 40%;
-	margin: auto; /* Выравниваем по центру */
-	/*margin-top: -50px;*/
-	/*margin-left: -50px;*/
+	width: 600px;
+	margin: 0 auto;
 }
 
 
