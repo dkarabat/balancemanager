@@ -9,7 +9,7 @@ http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 		<intercept-url pattern="/index*" access="ROLE_USER,ROLE_ANONYMOUS" />
         <intercept-url pattern="/register*" access="ROLE_ANONYMOUS, ROLE_USER,ROLE_ADMIN " />
 		<intercept-url pattern="/add*" access="ROLE_USER" />
-        <intercept-url pattern="/popolnenie*" access="ROLE_ADMIN" />
+        <intercept-url pattern="/addbalance*" access="ROLE_ADMIN" />
         <intercept-url pattern="/bal*" access="ROLE_USER, ROLE_ADMIN" />
         <intercept-url pattern="/userlist*" access="ROLE_ADMIN" />
 		<intercept-url pattern="/gethistorybydate*" access="ROLE_ADMIN" />
