@@ -48,7 +48,7 @@ public class BalanceController {
         log.info("Add balance");
         log.info("user id = {}", req.getParameter("userid"));
         log.info("amount = {}", req.getParameter("amount"));
-        resp.setHeader("Content-Type", "text/xml; charset=UTF-8");
+        resp.setHeader("Content-Type", "application/json; charset=UTF-8");
         JSONObject json = new JSONObject();
 
         userService.addBalance(Integer.parseInt(req.getParameter("userid")),
