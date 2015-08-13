@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -60,7 +61,11 @@ public class UserDaoImpl implements UserDao {
     public Double addBalance(Integer id, Double summ) {
         User user = (User) sessionFactory.getCurrentSession().load(User.class, id);
         log.info("user name = {}", user.getUsername());
-        user.setBalance(user.getBalance() + summ);
+        BigDecimal one = new BigDecimal(user.getBalance());
+        BigDecimal two = new BigDecimal(summ);
+        one = one.add(two); // сложение
+        System.out.println(one.setScale(3).toString());
+        user.setBalance(one.setScale(3).doubleValue());
         log.info("balance = {}", user.getBalance());
         sessionFactory.getCurrentSession().flush();
         return user.getBalance();
