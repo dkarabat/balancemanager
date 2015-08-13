@@ -61,11 +61,9 @@ public class UserDaoImpl implements UserDao {
     public Double addBalance(Integer id, Double summ) {
         User user = (User) sessionFactory.getCurrentSession().load(User.class, id);
         log.info("user name = {}", user.getUsername());
-        BigDecimal one = new BigDecimal(user.getBalance());
-        BigDecimal two = new BigDecimal(summ);
-        one = one.add(two); // сложение
-        System.out.println(one.setScale(3).toString());
-        user.setBalance(one.setScale(3).doubleValue());
+        double sum;
+        sum = new BigDecimal(user.getBalance() + summ).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        user.setBalance(sum);
         log.info("balance = {}", user.getBalance());
         sessionFactory.getCurrentSession().flush();
         return user.getBalance();
