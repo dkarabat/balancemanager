@@ -9,7 +9,7 @@ public interface UserDao {
 
     public List<User> getUsers();
 
-    public Object getUserByNme(String name);
+    public Object getUserByName(String name);
 
     public User getUserEntityByID(Integer id);
 

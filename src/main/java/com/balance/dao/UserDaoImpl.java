@@ -40,7 +40,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserByNme(String login) {
+    public User getUserByName(String login) {
         List<User> userList;
         Query query = sessionFactory.getCurrentSession().createQuery("from User u where u.username = :login");
         query.setParameter("login", login);
