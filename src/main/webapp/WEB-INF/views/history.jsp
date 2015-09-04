@@ -79,7 +79,7 @@
             <tbody>
             <c:forEach items="${history}" var="history">
                 <tr>
-                    <td><c:out value=" ${history.admin_name}"/></td>
+                    <td><c:out value="${history.admin_name}"/></td>
                     <td><c:out value="${history.user_name}"/></td>
                     <td><c:out value="${history.update_date}"/></td>
                     <td><c:out value="${history.summ}"/></td>
