@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap-responsive.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" type="text/css" href="/resources/css/my/style_old.css">
+<link rel="stylesheet" type="text/css" href="/resources/css/my/style.css">
 
 <script>
     $(document).ready(function () {
@@ -28,16 +28,15 @@
     });
 </script>
 
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Being Java Guys | User Details</title>
+    <title> Журнал пополнений баланса</title>
 </head>
 <body>
-<br><br><br><br><br><br>
-
-<div style="color: teal;font-size: 30px">Журнал пополнений баланса</div>
 <br><br>
-
+<div class="wrapper">
+    <header class="header" id="title" style="color: teal;font-size: 30px">Журнал пополнений баланса</header>
 <form method="POST" action="gethistorybydate" id="filter" class="form-horizontal"
       novalidate="novalidate">
     <div class="control-group">
@@ -66,7 +65,8 @@
 </form>
 
 <c:if test="${!empty history}">
-    <div id="content">
+    <%--<div id="content">--%>
+        <main class="content">
         <table id="history" border="1" width="600px">
             <thead style="background-color: teal;color: white;text-align: center;">
             <tr>
@@ -87,9 +87,13 @@
             </c:forEach>
             </tbody>
         </table>
-    </div>
+    </main>
 </c:if>
 <br>
-
+</div>
+<footer class="footer">
+    <strong>BALANCE MANAGER</strong>
+</footer>
 </body>
+
 </html>
