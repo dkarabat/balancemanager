@@ -1,0 +1,2 @@
+#start project local
+ java -jar target/dependency/jetty-runner.jar target/*.war
